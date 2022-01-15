@@ -1,0 +1,65 @@
+body {
+    overflow: auto !important;
+    margin: 0;
+}
+
+#landing {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#threatmap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: brightness(.7);
+}
+
+#threatmap > iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#introduction {
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 2%;
+    overflow: hidden;
+}
+
+#introduction > a {
+    color: initial;
+    text-decoration: none;
+}
+#threatMapCredit {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    text-align: right;
+}
+
+#threatMapCredit a {
+    text-decoration: none;
+}
+
+#resumeDownload {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#downIcon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    bottom: 12%;
+}
+
+#content {
+    position: relative;
+    display: flex;
+}
