@@ -40,7 +40,8 @@ function ProjectCard(props) {
                     <CardMedia
                         component="img"
                         height="140px"
-                        image={props.image}
+                        src={props.image}
+                        loading="lazy"
                     />
                     <CardContent>
                         <Grid container columns={2} spacing={2}>

@@ -1,19 +1,24 @@
+import React from "react";
 import {Divider, Container, CssBaseline, Typography} from "@mui/material";
 import {useTheme} from "@mui/styles";
-import Footer from "./Footer";
+import Footer from "../components/Footer";
 
+// styling for headers
 function Header(props) {
     return <Typography variant="h3" color="secondary">{props.children}</Typography>;
 }
 
+// styling for subheader
 function SubHeader(props) {
     return <Typography variant="h4" {...props}>{props.children}</Typography>;
 }
 
+// styling for paragraphs
 function Body(props) {
     return <Typography variant="body1">{props.children}</Typography>;
 }
 
+// styling for links
 function Link(props) {
     const theme = useTheme();
     return <a style={{textDecoration: "none", color: theme.palette.secondary.main}} target="_blank" rel="noopener" {...props}>{props.children}</a>

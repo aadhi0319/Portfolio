@@ -1,3 +1,4 @@
+import React from "react";
 import {makeStyles, useTheme} from "@mui/styles";
 import Masonry from "react-masonry-css";
 import PropTypes from "prop-types";
@@ -42,7 +43,6 @@ const propTypes = {
 const BreakpointMasonry = ({ children }) => {
     const classes = useStyles();
     const theme = useTheme();
-
     const breakpointCols = {
         default: 3,
         [theme.breakpoints.values.xl]: 3,

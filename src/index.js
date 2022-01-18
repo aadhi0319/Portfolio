@@ -1,34 +1,39 @@
-import * as React from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import {createTheme, responsiveFontSizes, ThemeProvider} from "@mui/material/styles";
+import { AppContainer } from "react-hot-loader"
+
+// top level component
 import App from "./App";
 
-// configure the main theme (currently only supports dark mode)
-const darkTheme = createTheme({
-    palette: {
-        mode: "dark",
-        primary: {
-            main: "#202020",
-        },
-        secondary: {
-            main: "#ffd100",
-        },
-        background: {
-            paper: "#333533",
-            default: "#202020",
-        }
+// export top level component as JSX (for static rendering)
+export default App;
+
+// render app (ensure this happens client side)
+if (typeof document !== "undefined") {
+    const target = document.getElementById("root");
+
+    /**
+     * was changed to fix an issue where wrong render was used in dev server
+     * note that pre-rendering does not occur during development
+     */
+    const renderMethod = !!module.hot ? ReactDOM.render : ReactDOM.hydrate;
+
+    const render = Comp => {
+        renderMethod(
+            <AppContainer>
+                <Comp />
+            </AppContainer>,
+            target
+        );
     }
-});
 
-// ensure font sizes scale with screen size (mainly for mobile support)
-const theme = responsiveFontSizes(darkTheme);
+    // Render!
+    render(App)
 
-// render the main App with our theme
-ReactDOM.render(
-    <React.StrictMode>
-        <ThemeProvider theme={theme}>
-            <App />
-        </ThemeProvider>
-    </React.StrictMode>,
-    document.getElementById("root")
-);
+    // hot module replacement
+    if (module && module.hot) {
+        module.hot.accept('./App', () => {
+            render(App)
+        });
+    }
+}

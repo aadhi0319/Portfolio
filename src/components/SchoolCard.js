@@ -6,7 +6,7 @@ function SchoolCard(props) {
     return (
         <Grid container columns={16} spacing={2} sx={{marginTop: 4, marginBottom: 4}}>
             <Grid item xs={16} md={3} order={{xs: 1, md: 1}} display="flex" alignItems="center" justifyContent={{xs: "center", md: "left"}}>
-                <a href={props.website} target="_blank" rel="noreferrer"><img src={props.logo} style={{maxWidth: "150px", width: "100%"}} alt="School Logo" /></a>
+                <a href={props.website} target="_blank" rel="noreferrer"><img src={props.logo} loading="lazy" style={{maxWidth: "150px", width: "100%"}} alt="School Logo" /></a>
             </Grid>
             <Grid item xs={16} md={10} order={{xs: 3, md: 2}}>
                 <Stack spacing={3}>

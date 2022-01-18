@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import {Button, Box, TextField} from "@mui/material";
 import emailjs from "emailjs-com";
 import HCaptcha from "@hcaptcha/react-hcaptcha";

@@ -1,21 +1,20 @@
-import * as React from "react";
+import React from "react";
 import {Box, Button, Container, CssBaseline, Divider, Grid, Stack, Typography, useMediaQuery} from "@mui/material";
 import {useTheme} from "@mui/styles";
 import {KeyboardArrowDown} from "@mui/icons-material";
 import {scroller} from "react-scroll";
-import {Sugar} from "react-preloaders2";
 import Typewriter from "typewriter-effect";
-import BreakpointMasonry from "./BreakpointMasonry";
-import CheckboxList from "./CheckboxList";
-import Contact from "./Contact";
-import CookieDialog from "./CookieDialog";
-import DesktopNav from "./DesktopNav";
-import Footer from "./Footer";
-import PhoneNav from "./PhoneNav";
-import SchoolCard from "./SchoolCard";
-import WorkCard from "./WorkCard";
-import ProjectCard from "./ProjectCard";
-import "./Portfolio.css";
+import BreakpointMasonry from "../components/BreakpointMasonry";
+import CheckboxList from "../components/CheckboxList";
+import Contact from "../components/Contact";
+import CookieDialog from "../components/CookieDialog";
+import DesktopNav from "../components/DesktopNav";
+import Footer from "../components/Footer";
+import PhoneNav from "../components/PhoneNav";
+import SchoolCard from "../components/SchoolCard";
+import WorkCard from "../components/WorkCard";
+import ProjectCard from "../components/ProjectCard";
+import "../components/Portfolio.css";
 
 // renders the main portfolio website
 function Portfolio() {
@@ -40,11 +39,10 @@ function Portfolio() {
 
     return (
         <React.Fragment>
-            <Sugar color={theme.palette.secondary.main} background={theme.palette.background.default} animation="slide" time={0} />
             <CookieDialog />
             <div id="landing">
                 <div id="threatmap">
-                    <iframe id="threatmapIframe" title="threatmapFrame" src="https://attackmap.sonicwall.com/live-attack-map/"></iframe>
+                    <iframe id="threatmapIframe" loading="lazy" title="threatmapFrame" src="https://attackmap.sonicwall.com/live-attack-map/"></iframe>
                 </div>
                 <div id="introduction">
                     <Typography variant="h1" color="text.primary">Hello! I'm Aadhithya.</Typography>
@@ -92,7 +90,7 @@ function Portfolio() {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <SchoolCard
-                                        logo="images/UT.svg"
+                                        logo={require("../images/UT.svg?width=150")}
                                         website="https://www.utexas.edu/"
                                         degree={"Bachelor of Science Computer Science & Computational Physics"}
                                         school="University of Texas at Austin"
@@ -101,7 +99,7 @@ function Portfolio() {
                                     />
                                     <Divider />
                                     <SchoolCard
-                                        logo="images/MHS.png"
+                                        logo={require("../images/MHS.webp?width=150")}
                                         website="https://mcneil.roundrockisd.org/"
                                         degree={"High School Diploma"}
                                         school="McNeil High School"
@@ -116,7 +114,7 @@ function Portfolio() {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <WorkCard
-                                        logo="images/TREL.svg"
+                                        logo={require("../images/TREL.svg?width=150")}
                                         website="https://www.texasrocketlab.com/"
                                         company="Texas Rocket Engineering Laboratory"
                                         title="TRICK Responsible Engineer"
@@ -134,7 +132,7 @@ function Portfolio() {
                                     </WorkCard>
                                     <Divider />
                                     <WorkCard 
-                                        logo="images/DoD.svg"
+                                        logo={require("../images/DoD.svg?width=150")}
                                         website="https://www.defense.gov/"
                                         company="Department of Defense"
                                         title="Emerging Technologies Intern"
@@ -149,7 +147,7 @@ function Portfolio() {
                                     </WorkCard>
                                     <Divider />
                                     <WorkCard
-                                        logo="images/TREL.svg"
+                                        logo={require("../images/TREL.svg?width=150")}
                                         website="https://www.texasrocketlab.com/"
                                         company="Texas Rocket Engineering Laboratory"
                                         title="Simulink Responsible Engineer"
@@ -165,7 +163,7 @@ function Portfolio() {
                                             </CheckboxList>
                                     </WorkCard>
                                     <WorkCard
-                                        logo="images/SoloStarr.png"
+                                        logo={require("../images/SoloStarr.webp?width=150")}
                                         website="https://www.solostarr.com/"
                                         company="SoloStarr"
                                         title="Head of Cybersecurity"
@@ -183,7 +181,7 @@ function Portfolio() {
                                     </WorkCard>
                                     <Divider />
                                     <WorkCard
-                                        logo="images/Infiswift.svg"
+                                        logo={require("../images/Infiswift.svg?width=150")}
                                         website="https://infiswift.tech/"
                                         company="Infiswift"
                                         title="Software Development Intern"
@@ -200,7 +198,7 @@ function Portfolio() {
                                     </WorkCard>
                                     <Divider />
                                     <WorkCard
-                                        logo="images/Mistnet.svg"
+                                        logo={require("../images/Mistnet.svg?width=150")}
                                         website="https://logrhythm.com/"
                                         company="Mistnet"
                                         title="Software Engineering Intern"
@@ -217,7 +215,7 @@ function Portfolio() {
                                     </WorkCard>
                                     <Divider />
                                     <WorkCard
-                                        logo="images/Sandbox.svg"
+                                        logo={require("../images/Sandbox.svg?width=150")}
                                         website="https://www.builtinaustin.com/2020/02/04/sputnik-atx-winter-2020-cohort"
                                         company="Sandbox Systems"
                                         title="CEO & Co-Founder"
@@ -242,7 +240,7 @@ function Portfolio() {
                                     <Typography variant="h1" sx={{marginBottom: 2}}>Projects</Typography>
                                     <BreakpointMasonry columns={3}>
                                         <ProjectCard
-                                            image="images/Unikraft.webp"
+                                            image={require("../images/Unikraft.webp?height=140")}
                                             website="https://unikraft.org/"
                                             name="Unikraft"
                                             period="2021"
@@ -250,7 +248,7 @@ function Portfolio() {
                                                 I am a proud open source contributor to the Unikraft project. Unikraft is a Linux Foundation project that is capable of generating extremely light, but simultaneously powerful taylored unikernels. One can think of these as autogenerated operating systems mimized to be able to run one user application only. As such, a lot of the bloat in traditional operating systems can be removed. This also minimizes the attack surface and hence improves security.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/Kolasi.webp"
+                                            image={require("../images/Kolasi.webp?height=140")}
                                             website="https://drive.google.com/file/d/1a5_i7H3suIQRpZQxGb4wCN028jDxXVr7/view?usp=sharing"
                                             name="Kolasi"
                                             period="2017"
@@ -258,7 +256,7 @@ function Portfolio() {
                                                 An extremely lightweight and stealthy remote access trojan (RAT) for MacOSX. It has the ability to initiate a reverse tcp shell, sniff network packets, spoof system dialogs, process inject, and more. If the command and control (C2) server goes down, the RAT is capable of switching to a previously unknown live server without communicating with the attacker.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/Hospital.webp"
+                                            image={require("../images/Hospital.webp?height=140")}
                                             message="The government considers this a violation of HIPPA, so source code cannot be shared. That said, I did talk to a representative about potential mitigations."
                                             duration={10000}
                                             name="Hospital Communications"
@@ -267,7 +265,7 @@ function Portfolio() {
                                                 Was able to use a software defined radio (RTL-SDR) to decode pager traffic going between hospitals and EMS vehicles. I was able to see, in plain text, the communications of several hospitals and EMS vehicles within a 100 mile radius from where I live. The moral of the story is that hospitals should use encrypted pagers.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/Logos.webp"
+                                            image={require("../images/Logos.webp?height=140")}
                                             message="Unfortunately, there is no web content to link to for this project."
                                             name="Logos"
                                             period="2021"
@@ -275,7 +273,7 @@ function Portfolio() {
                                                 The Logical Operating System, or Logos for short, is a low level operating system that I designed and built. It has its own bootloader and comes with minimal screen, keyboard, clock, and other system drivers. Logos starts in Intel 16 bit mode and then transitions to 32 bit x86.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/LocoEats.webp"
+                                            image={require("../images/LocoEats.webp?height=140")}
                                             website="https://locoeats.org/"
                                             name="LocoEats"
                                             period="2020"
@@ -283,7 +281,7 @@ function Portfolio() {
                                                 During COVID, a lot of local restaurants were struggling to establish a web prescence and market themselves online in order to stay in business. LocoEats allows a user to search for food they want from locally owned restaurants. I set up the backend server and developed the algorithm that distinguishes between locally owned restaurants and chains based on a variety of heuristics.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/Logger.webp"
+                                            image={require("../images/Logger.webp?height=140")}
                                             website="https://github.com/aadhi0319/Logger"
                                             name="Logger"
                                             period="2017"
@@ -291,7 +289,7 @@ function Portfolio() {
                                                 A lightweight Java jar file that autodeploys from an Attiny85 usb chip. After deploying on a Windows machine, the payload is capable of decrypting all saved user credentials and uploading the plain text to a preconfigured DropBox account. The payload then attempts to persist so that any user that logs into the computer afterwards will also be compromised.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/ACC.webp"
+                                            image={require("../images/ACC.webp?height=140")}
                                             website="https://www.austincc.edu/"
                                             name="ACC"
                                             period="2018"
@@ -299,7 +297,7 @@ function Portfolio() {
                                                 Discovered a vulnerability in which some of the timing modules were offloaded to client side software to reduce load on the server. This allowed me to inject Javascript and sign up for classes before other students. I also had the ability to drop students out of and assign students to any course of my choice. This vulnerability was reported and although I never got an official response, the vulnerability was mitigated several weeks later.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/Pintos.webp"
+                                            image={require("../images/Pintos.webp?height=140")}
                                             website="https://web.stanford.edu/class/cs140/projects/pintos/pintos_1.html#SEC1"
                                             name="Pintos"
                                             period="2020"
@@ -307,15 +305,15 @@ function Portfolio() {
                                                 An academic project where we had to extend an operating system to support threads, user programs, virtual memory, priority scheduling, and a multithreaded file system. Due to academic integrity concerns, the source code of this project cannot be publically shared, but the technical documentation for the project is linked to this card.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/Portfolio.webp"
+                                            image={require("../images/Portfolio.webp?height=140")}
                                             website={process.env.REACT_APP_PUBLIC_URL}
                                             name="Portfolio"
                                             period="2022"
-                                            skills={{"react": 100}}>
+                                            skills={{"react": 80, "react-static": 20}}>
                                                 An interactive portfolio to showcase what I have been working on. It's the lightweight, yet powerful website that you're on right now. There are several optimizations under the hood to handle a variety of devices and internet connections. Load times have been stress tested against everything from 2G to high speed internet.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/Venom.webp"
+                                            image={require("../images/Venom.webp?height=140")}
                                             message="Unfortunately, there is no web content to link to for this project."
                                             name="Venom"
                                             period="2018"
@@ -323,7 +321,7 @@ function Portfolio() {
                                                 Attempted to regress the AES 128 SBOX with neural networks. Full, unfortunately (or fortunately if you care about internet security) did not work. To show the importance of the SBOX being non-linearizable, I implemented AES 128 ECB with a linearized SBOX and was able to successfully perform a known plaintext attack.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/Artemis.webp"
+                                            image={require("../images/Artemis.webp?height=140")}
                                             message="Unfortunately, there is no web content to link to for this project."
                                             name="Artemis"
                                             period="2017"
@@ -331,7 +329,7 @@ function Portfolio() {
                                                 Inspired by "The Machine" from Person of Interest, Artemis was a convolutional neural network written from scratch in Octave supposed to be capable of identifying individuals prone to violent behavior based on past life choices, such as credit history and incidents with law enforcement. It was difficult to get good data due to data privacy laws and as such, the algorithm became biased.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/NoEye.webp"
+                                            image={require("../images/NoEye.webp?height=140")}
                                             message="Unfortunately, there is no web content to link to for this project."
                                             name="NoEye"
                                             period="2016"
@@ -339,7 +337,7 @@ function Portfolio() {
                                                 A shell script capable of exploiting wildcards in SQL in order to brute force passwords in O(N) time where N is the number of characters in the password. An attacker can point the script at an input field in a website vulnerable to SQL injection (works on both normal and blind SQL injection) and the script will generate valid inputs for that field.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/iQualify.webp"
+                                            image={require("../images/iQualify.webp?height=140")}
                                             website="https://devpost.com/software/iqualify"
                                             name="iQualify"
                                             period="2020"
@@ -347,7 +345,7 @@ function Portfolio() {
                                                 Each locality has its own rules about COVID benefits and the process to apply for them. iQualify presents a fast questionaire to determine approximately how much an individual will qualify for and then automatically provides the forms that need to be filled out in order to receive those benefits.
                                         </ProjectCard>
                                         <ProjectCard
-                                            image="images/PearsonHash.webp"
+                                            image={require("../images/PearsonHash.webp?height=140")}
                                             message="Unfortunately, there is no web content to link to for this project."
                                             name="Quantum Pearson Hash Cracker"
                                             period="2019"
